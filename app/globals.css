@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0B0A08;
+  color: #EDE7D8;
+}
+
+::selection {
+  background-color: #C9A24B;
+  color: #0B0A08;
+}
+
+/* subtle engraved texture on dark panels, echoes the card's diamond pattern */
+.texture {
+  background-image:
+    linear-gradient(135deg, rgba(201,162,75,0.05) 1px, transparent 1px),
+    linear-gradient(45deg, rgba(201,162,75,0.05) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.eyebrow {
+  letter-spacing: 0.28em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
