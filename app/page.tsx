@@ -1,8 +1,8 @@
 import Link from "next/link";
-import Scales from "@/components/Scales";
 import ServiceCard from "@/components/ServiceCard";
 import PostCard from "@/components/PostCard";
 import { posts } from "@/lib/posts";
+import Image from "next/image";
 
 const services = [
   {
@@ -98,9 +98,21 @@ export default function HomePage() {
           </div>
 
           <div className="relative mx-auto flex h-72 w-72 items-center justify-center md:h-96 md:w-96">
+            {/* Círculos decorativos de fundo mantidos */}
             <div className="absolute inset-0 rounded-full border border-gold/30" />
             <div className="absolute inset-8 rounded-full border border-gold/15" />
-            <Scales className="h-40 w-40 text-gold drop-shadow-[0_0_30px_rgba(201,162,75,0.25)] md:h-56 md:w-56" />
+            
+            {/* Sua logo substituindo o ícone Scales */}
+           <div className="relative h-48 w-48 md:h-64 md:w-64 ml-[-20px] drop-shadow-[0_0_30px_rgba(201,162,75,0.35)]">
+            <Image 
+              src="/images/LogoAdv.png" 
+              alt="Logo Roberto Carlos Elias"
+              fill 
+              sizes="(max-width: 768px) 192px, 256px" 
+              className="object-contain" 
+              priority 
+            />
+          </div>
           </div>
         </div>
       </section>

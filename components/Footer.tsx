@@ -31,12 +31,12 @@ export default function Footer() {
             </li>
             <li>
               <a
-                href="https://instagram.com/robertocarlos.elias.adv"
+                href="https://instagram.com/robertoelias.adv"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-gold transition-colors"
               >
-                @robertocarlos.elias.adv
+                @robertoelias.adv
               </a>
             </li>
           </ul>

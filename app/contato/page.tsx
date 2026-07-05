@@ -34,7 +34,7 @@ export default function ContatoPage() {
         </a>
 
         <a
-          href="https://instagram.com/robertocarlos.elias.adv"
+          href="https://instagram.com/robertoelias.adv"
           target="_blank"
           rel="noopener noreferrer"
           className="group rounded-2xl border border-panelLine bg-panel p-8 transition-colors hover:border-gold/50"
@@ -47,7 +47,7 @@ export default function ContatoPage() {
             </svg>
           </div>
           <p className="mt-4 font-display text-lg text-parchment">Instagram</p>
-          <p className="mt-1 text-sm text-parchmentDim">@robertocarlos.elias.adv</p>
+          <p className="mt-1 text-sm text-parchmentDim">@robertoelias.adv</p>
         </a>
       </div>
     </section>

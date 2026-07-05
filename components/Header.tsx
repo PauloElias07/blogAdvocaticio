@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const nav = [
   { href: "/", label: "Início" },
@@ -10,16 +11,27 @@ const nav = [
 export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-panelLine bg-ink/90 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      {/* Reduzido de py-4 para py-2 para deixar o header bem mais fino */}
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-2">
         <Link href="/" className="group flex items-center gap-3">
-          <span className="flex h-10 w-10 items-center justify-center rounded-full border border-gold text-gold font-display text-sm tracking-wide">
-            RCE
+          {/* Ajustado para h-14 w-14 (56px) - mantém a nitidez sem dar volume vertical */}
+          <span className="relative flex h-14 w-14 items-center justify-center rounded-full border border-gold/40 overflow-hidden bg-ink/50">
+            <Image 
+              src="/images/LogoAdv.png" 
+              alt="Logo RCE" 
+              width={112} // Dobro do tamanho de exibição para manter a alta definição
+              height={112}
+              className="h-full w-full object-contain p-1" 
+            />
           </span>
+          
           <span className="flex flex-col leading-tight">
             <span className="font-display text-base tracking-wide text-parchment group-hover:text-gold transition-colors">
               Roberto Carlos Elias
             </span>
-            <span className="eyebrow text-[10px] uppercase text-gold">Advogado</span>
+            <span className="eyebrow text-[10px] uppercase tracking-widest text-gold mt-0.5">
+              Advogado
+            </span>
           </span>
         </Link>
 
