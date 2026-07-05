@@ -57,29 +57,78 @@ const services = [
 export default function HomePage() {
   return (
     <>
+      {/* Estilos locais atualizados para a animação fluida e efeito cônico gradual */}
+      <style dangerouslySetInnerHTML={{__html: `
+  @keyframes drawCircle {
+    from { stroke-dashoffset: 942; }
+    to { stroke-dashoffset: 235; }
+  }
+  .animate-draw-circle {
+    stroke-dasharray: 942;
+    stroke-dashoffset: 942;
+    animation: drawCircle 2.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  }
+
+  /* Animação de Entrada Suave */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-up {
+    animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-fill-mode: backwards; /* Mantém invisível antes de começar */
+  }
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+
+  /* Máscara CSS para o círculo */
+  .conic-taper-mask {
+    mask-image: conic-gradient(from calc(-1 * var(--rotation, 106deg)) at center, rgba(0,0,0,1) 0deg, rgba(0,0,0,0.8) 90deg, rgba(0,0,0,0.4) 180deg, rgba(0,0,0,0.2) 270deg, rgba(0,0,0,1) 360deg);
+    -webkit-mask-image: conic-gradient(from calc(-1 * var(--rotation, 106deg)) at center, rgba(0,0,0,1) 0deg, rgba(0,0,0,0.8) 90deg, rgba(0,0,0,0.4) 180deg, rgba(0,0,0,0.2) 270deg, rgba(0,0,0,1) 360deg);
+  }
+`}} />
+
       {/* Hero — mirrors the card's split composition: text on the left, scales on the right */}
       <section className="texture relative overflow-hidden border-b border-panelLine">
-        <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-24 md:grid-cols-2 md:py-32">
-          <div>
-            <span className="eyebrow inline-block text-xs uppercase text-gold">
-              Advogado
-            </span>
-            <h1 className="mt-4 font-display text-5xl leading-[1.05] text-parchment md:text-6xl">
-              Roberto Carlos <span className="text-gold">Elias</span>
-            </h1>
-            <div className="mt-5 h-px w-16 bg-gold-fade" />
-            <p className="mt-5 font-display text-xl text-goldLight">
-              Direito do Consumidor
-            </p>
-            <p className="mt-2 text-sm uppercase tracking-widest text-parchmentDim">
-              Seus direitos. Nossa missão.
-            </p>
-            <p className="mt-6 max-w-md text-parchmentDim">
-              Atendimento próximo e estratégico para quem foi lesado em uma
-              relação de consumo — de contratos abusivos a produtos com vício
-              e cobranças indevidas.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
+        
+        {/* Imagem da Estátua da Justiça em Background */}
+        <div className="absolute inset-0 z-0 pointer-events-none select-none opacity-[0.12]">
+          <Image
+            src="/images/estatua.png"
+            alt="Estátua da Justiça de fundo"
+            fill
+            priority
+            className="object-cover object-center mix-blend-luminosity"
+          />
+          {/* Degradê preto nas bordas inferiores e superiores para suavizar o corte da imagem */}
+          <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/50" />
+        </div>
+
+        {/* Adicionado o z-10 para garantir que o conteúdo fique visível acima da imagem de fundo */}
+<div className="relative z-10 mx-auto grid max-w-6xl items-center gap-12 px-6 py-24 md:grid-cols-2 md:py-32">
+  <div className="animate-fade-up"> {/* Container do texto */}
+    <span className="eyebrow inline-block text-xs uppercase text-gold animate-fade-up">
+      Advogado
+    </span>
+    <h1 className="mt-4 font-display text-5xl leading-[1.05] text-parchment md:text-6xl animate-fade-up delay-100">
+      Roberto Carlos <span className="text-gold">Elias</span>
+    </h1>
+    <div className="mt-5 h-px w-16 bg-gold-fade animate-fade-up delay-200" />
+    <p className="mt-5 font-display text-xl text-goldLight animate-fade-up delay-200">
+      Direito do Consumidor
+    </p>
+    <p className="mt-2 text-sm uppercase tracking-widest text-parchmentDim animate-fade-up delay-300">
+      Seus direitos. Nossa missão.
+    </p>
+    <p className="mt-6 max-w-md text-parchmentDim animate-fade-up delay-300">
+      Atendimento próximo e estratégico para quem foi lesado em uma
+      relação de consumo — de contratos abusivos a produtos com vício
+      e cobranças indevidas.
+    </p>
+    <div className="mt-8 flex flex-wrap gap-4 animate-fade-up delay-400">
               <a
                 href="https://wa.me/5511988649386"
                 target="_blank"
@@ -97,22 +146,63 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="relative mx-auto flex h-72 w-72 items-center justify-center md:h-96 md:w-96">
-            {/* Círculos decorativos de fundo mantidos */}
-            <div className="absolute inset-0 rounded-full border border-gold/30" />
-            <div className="absolute inset-8 rounded-full border border-gold/15" />
+          <div className="relative mx-auto flex h-72 w-72 items-center justify-center md:h-86 md:w-86 animate-fade-up delay-500">
+            {/* Círculo Perfeito e Contínuo com Máscara de Afinamento Gradual em CSS */}
+            <svg 
+              className="absolute inset-0 h-full w-full conic-taper-mask"
+              style={{ transform: "rotate(106deg)" }} /* Posiciona a abertura e a parte espessa com perfeição */
+              viewBox="0 0 320 320"
+            >
+              <defs>
+                {/* Gradiente Dourado Vivo */}
+                <linearGradient id="vibrantGoldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#FFF2A3" />
+                  <stop offset="50%" stopColor="#FFD700" />
+                  <stop offset="100%" stopColor="#FFA500" />
+                </linearGradient>
+
+                {/* Máscara SVG para a animação do traço surgir fluidamente */}
+                <mask id="drawMask">
+                  <circle
+                    cx="160"
+                    cy="160"
+                    r="135"
+                    fill="none"
+                    stroke="white"
+                    strokeWidth="16" /* Espessura total controlada nativamente */
+                    strokeLinecap="round"
+                    className="animate-draw-circle"
+                    style={{
+                      strokeDasharray: 942,
+                      strokeDashoffset: 942,
+                    }}
+                  />
+                </mask>
+              </defs>
+
+              {/* Linha única contínua e perfeita, sem emendas geométricas */}
+              <circle
+                cx="160"
+                cy="160"
+                r="135"
+                fill="none"
+                stroke="url(#vibrantGoldGradient)"
+                strokeWidth="7"
+                mask="url(#drawMask)"
+              />
+            </svg>
             
-            {/* Sua logo substituindo o ícone Scales */}
-           <div className="relative h-48 w-48 md:h-64 md:w-64 ml-[-20px] drop-shadow-[0_0_30px_rgba(201,162,75,0.35)]">
-            <Image 
-              src="/images/LogoAdv.png" 
-              alt="Logo Roberto Carlos Elias"
-              fill 
-              sizes="(max-width: 768px) 192px, 256px" 
-              className="object-contain" 
-              priority 
-            />
-          </div>
+            {/* Sua logo com o tamanho ampliado e margem deslocada à esquerda */}
+            <div className="relative h-48 w-48 md:h-64 md:w-64 ml-[-20px] drop-shadow-[0_0_35px_rgba(255,215,0,0.25)]">
+              <Image 
+                src="/images/LogoAdv.png" 
+                alt="Logo Roberto Carlos Elias"
+                fill 
+                sizes="(max-width: 768px) 192px, 256px" 
+                className="object-contain" 
+                priority 
+              />
+            </div>
           </div>
         </div>
       </section>
