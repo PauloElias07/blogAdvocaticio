@@ -59,9 +59,9 @@ export default function HomePage() {
     <>
       {/* Estilos locais atualizados para a animação fluida e efeito cônico gradual */}
       <style dangerouslySetInnerHTML={{__html: `
-  @keyframes drawCircle {
+@keyframes drawCircle {
     from { stroke-dashoffset: 942; }
-    to { stroke-dashoffset: 235; }
+    to { stroke-dashoffset: 180; } /* 120 deixa a abertura bem pequena/curta */
   }
   .animate-draw-circle {
     stroke-dasharray: 942;
@@ -84,10 +84,10 @@ export default function HomePage() {
   .delay-400 { animation-delay: 400ms; }
   .delay-500 { animation-delay: 500ms; }
 
-  /* Máscara CSS para o círculo */
+/* Máscara posicionada na lateral esquerda (180deg) */
   .conic-taper-mask {
-    mask-image: conic-gradient(from calc(-1 * var(--rotation, 106deg)) at center, rgba(0,0,0,1) 0deg, rgba(0,0,0,0.8) 90deg, rgba(0,0,0,0.4) 180deg, rgba(0,0,0,0.2) 270deg, rgba(0,0,0,1) 360deg);
-    -webkit-mask-image: conic-gradient(from calc(-1 * var(--rotation, 106deg)) at center, rgba(0,0,0,1) 0deg, rgba(0,0,0,0.8) 90deg, rgba(0,0,0,0.4) 180deg, rgba(0,0,0,0.2) 270deg, rgba(0,0,0,1) 360deg);
+    mask-image: conic-gradient(from calc(-1 * var(--rotation, 180deg)) at center, rgba(0,0,0,1) 0deg, rgba(0,0,0,0.8) 90deg, rgba(0,0,0,0.4) 180deg, rgba(0,0,0,0.2) 270deg, rgba(0,0,0,1) 360deg);
+    -webkit-mask-image: conic-gradient(from calc(-1 * var(--rotation, 180deg)) at center, rgba(0,0,0,1) 0deg, rgba(0,0,0,0.8) 90deg, rgba(0,0,0,0.4) 180deg, rgba(0,0,0,0.2) 270deg, rgba(0,0,0,1) 360deg);
   }
 `}} />
 
@@ -148,11 +148,11 @@ export default function HomePage() {
 
           <div className="relative mx-auto flex h-72 w-72 items-center justify-center md:h-86 md:w-86 animate-fade-up delay-500">
             {/* Círculo Perfeito e Contínuo com Máscara de Afinamento Gradual em CSS */}
-            <svg 
-              className="absolute inset-0 h-full w-full conic-taper-mask"
-              style={{ transform: "rotate(106deg)" }} /* Posiciona a abertura e a parte espessa com perfeição */
-              viewBox="0 0 320 320"
-            >
+          <svg 
+  className="absolute inset-0 h-full w-full conic-taper-mask"
+  style={{ transform: "rotate(70deg)" }} /* 180deg aponta o corte para o canto esquerdo */
+  viewBox="0 0 320 320"
+>
               <defs>
                 {/* Gradiente Dourado Vivo */}
                 <linearGradient id="vibrantGoldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
