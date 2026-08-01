@@ -60,7 +60,7 @@ export default function Header() {
 
         {/* Imagem da Logo no centro do círculo */}
         <Image 
-          src="/images/LogoAdv.png" 
+          src="/images/logoAdv.png" 
           alt="Logo RCE" 
           width={112} 
           height={112}

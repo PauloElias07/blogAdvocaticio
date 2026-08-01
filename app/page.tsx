@@ -195,7 +195,7 @@ export default function HomePage() {
             {/* Sua logo com o tamanho ampliado e margem deslocada à esquerda */}
             <div className="relative h-48 w-48 md:h-64 md:w-64 ml-[-20px] drop-shadow-[0_0_35px_rgba(255,215,0,0.25)]">
               <Image 
-                src="/images/LogoAdv.png" 
+                src="/images/logoAdv.png" 
                 alt="Logo Roberto Carlos Elias"
                 fill 
                 sizes="(max-width: 768px) 192px, 256px" 
