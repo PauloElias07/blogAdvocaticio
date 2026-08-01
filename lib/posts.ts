@@ -26,7 +26,7 @@ export const posts: Post[] = [
     date: "2026-06-18",
     readTime: "5 min de leitura",
     video: {
-      src: "/videos/prodRuim.mp4",
+      src: "/videos/prod-Ruim.mp4",
       poster: "/images/logoAdv.png",
       title: "Produto com defeito: o que a lei garante",
       caption: "Roberto Carlos Elias explica os prazos de 30 e 90 dias na prática.",
@@ -48,7 +48,7 @@ export const posts: Post[] = [
     date: "2026-05-30",
     readTime: "4 min de leitura",
     video: {
-      src: "/videos/prodRuim.mp4",
+      src: "/videos/prod-Ruim.mp4",
       poster: "/images/logoAdv.png",
       title: "Cobrança indevida: como pedir a devolução em dobro",
       caption: "Entenda quando cabe a restituição em dobro segundo o CDC.",
@@ -69,7 +69,7 @@ export const posts: Post[] = [
     date: "2026-05-10",
     readTime: "6 min de leitura",
     video: {
-      src: "/videos/prodRuim.mp4",
+      src: "/videos/prod-Ruim.mp4",
       poster: "/images/logoAdv.png",
       title: "Dano moral x mero aborrecimento",
       caption: "Veja os critérios utilizados pela justiça para definir o dano moral no consumo.",
@@ -90,7 +90,7 @@ export const posts: Post[] = [
     date: "2026-04-22",
     readTime: "5 min de leitura",
     video: {
-      src: "/videos/prodRuim.mp4",
+      src: "/videos/prod-Ruim.mp4",
       poster: "/images/logoAdv.png",
       title: "Como identificar e anular cláusulas abusivas",
       caption: "Dicas essenciais para não cair em armadilhas nos contratos de adesão.",
