@@ -41,7 +41,7 @@ export default function VideoPlayer({ video }: { video: VideoSuggestion }) {
             </svg>
           </div>
           <p className="max-w-[220px] text-xs text-parchmentDim">
-            Vídeo em breve. Adicione o arquivo em{" "}
+            O vídeo será adicionado em breve.
             <code className="text-goldLight">{video.src}</code>
           </p>
         </div>
