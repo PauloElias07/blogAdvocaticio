@@ -1,3 +1,10 @@
+export type VideoSuggestion = {
+  src: string; // caminho em /public, ex: "/videos/cobranca-indevida.mp4"
+  poster?: string; // thumbnail opcional
+  title: string;
+  caption?: string;
+};
+
 export type Post = {
   slug: string;
   title: string;
@@ -6,6 +13,7 @@ export type Post = {
   date: string;
   readTime: string;
   content: string[];
+  video?: VideoSuggestion;   // ← campo novo, opcional
 };
 
 export const posts: Post[] = [
@@ -17,6 +25,12 @@ export const posts: Post[] = [
     category: "Produtos e Vícios",
     date: "2026-06-18",
     readTime: "5 min de leitura",
+    video: {
+      src: "/videos/prodRuim.mp4",
+      poster: "/images/logoAdv.png",
+      title: "Produto com defeito: o que a lei garante",
+      caption: "Roberto Carlos Elias explica os prazos de 30 e 90 dias na prática.",
+    },
     content: [
       "Todo produto ou serviço comprado no Brasil está protegido por prazos legais de garantia, independentemente de o fornecedor oferecer ou não uma garantia contratual adicional. Esses prazos existem para que o consumidor tenha tempo de perceber e reclamar de um defeito.",
       "Para produtos e serviços não duráveis, como alimentos ou serviços de manutenção simples, o prazo para reclamar é de 30 dias corridos a partir da entrega ou da constatação do problema. Já para produtos duráveis, como eletrodomésticos, móveis e veículos, o prazo sobe para 90 dias.",
@@ -33,6 +47,12 @@ export const posts: Post[] = [
     category: "Relação de Consumo",
     date: "2026-05-30",
     readTime: "4 min de leitura",
+    video: {
+      src: "/videos/prodRuim.mp4",
+      poster: "/images/logoAdv.png",
+      title: "Cobrança indevida: como pedir a devolução em dobro",
+      caption: "Entenda quando cabe a restituição em dobro segundo o CDC.",
+    },
     content: [
       "É frequente encontrar cobranças que o consumidor não reconhece, seja em faturas de cartão de crédito, boletos de assinaturas ou contas de serviços. A primeira medida é sempre reunir a documentação: faturas, comprovantes de pagamento e prints de comunicações com a empresa.",
       "O Código de Defesa do Consumidor prevê que, quando uma cobrança indevida é paga pelo consumidor, ele tem direito à devolução em dobro do valor pago, corrigido monetariamente, salvo hipótese de engano justificável por parte do fornecedor.",
@@ -48,6 +68,12 @@ export const posts: Post[] = [
     category: "Danos Morais e Materiais",
     date: "2026-05-10",
     readTime: "6 min de leitura",
+    video: {
+      src: "/videos/prodRuim.mp4",
+      poster: "/images/logoAdv.png",
+      title: "Dano moral x mero aborrecimento",
+      caption: "Veja os critérios utilizados pela justiça para definir o dano moral no consumo.",
+    },
     content: [
       "A jurisprudência brasileira distingue com cuidado o simples aborrecimento do dano moral efetivo. Um atraso pontual em uma entrega, por exemplo, normalmente não gera indenização. Já situações como negativação indevida do nome, exposição vexatória em loja ou descumprimento reiterado de uma obrigação essencial costumam ser reconhecidas pelos tribunais.",
       "Entre os casos mais comuns estão a inclusão indevida em cadastros de inadimplentes, o cancelamento unilateral de serviços essenciais sem aviso prévio, e falhas graves em procedimentos de saúde suplementar, como negativas indevidas de cobertura.",
@@ -63,6 +89,12 @@ export const posts: Post[] = [
     category: "Contratos e Serviços",
     date: "2026-04-22",
     readTime: "5 min de leitura",
+    video: {
+      src: "/videos/prodRuim.mp4",
+      poster: "/images/logoAdv.png",
+      title: "Como identificar e anular cláusulas abusivas",
+      caption: "Dicas essenciais para não cair em armadilhas nos contratos de adesão.",
+    },
     content: [
       "Contratos de adesão — aqueles em que o consumidor não participa da negociação dos termos — são especialmente vigiados pelo Código de Defesa do Consumidor, justamente porque a parte mais fraca da relação normalmente não tem poder de barganha sobre as cláusulas.",
       "O primeiro sinal de alerta é a transferência de responsabilidades que deveriam ser do fornecedor para o consumidor, como cláusulas que isentam a empresa de qualquer responsabilidade por vícios do produto ou serviço.",
